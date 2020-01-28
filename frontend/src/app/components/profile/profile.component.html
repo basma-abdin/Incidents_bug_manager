@@ -1,0 +1,45 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="container" *ngIf="!isLoading">
+  <h2 class="card-header">Account settings</h2>
+  <div class="card-body">
+    <form #accountForm="ngForm" (ngSubmit)="save(user)">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+
+        <input class="form-control" type="text" name="name"
+               [ngModel]="user?.name" (ngModelChange)="user.name = $event" placeholder="User name" required>
+      </div>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="email" name="email"
+               [ngModel]="user?.email" (ngModelChange)="user.email = $event" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-black-tie"></i>
+          </span>
+        </div>
+        <!--
+        <select class="custom-select" name="role" [(ngModel)]="user.role">
+          <option value="" disabled>Role</option>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+        -->
+      </div>
+      <input type="submit" [disabled]="!accountForm.form.valid" class="btn btn-primary" value="Save">
+      <input type="reset"  class="btn btn-primary" value="Cancel">
+    </form>
+  </div>
+</div>

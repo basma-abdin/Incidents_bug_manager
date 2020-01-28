@@ -1,0 +1,51 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="content" role="main">
+    <h2> Welcome in your issue {{issue.title}} </h2><br>
+    <div class="scrollbar square scrollbar-lady-lips thin">
+      <div class="force-overflow"></div>
+    </div>
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th colspan="2">{{issue.title}}
+            <button  class="btn btn-sm btn-danger" style="background-color:#008080"(click)="editIssue(issue._id)">
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <i class="fa fa-edit" style="font-size:24px"></i>
+            </button>
+
+            <button class="btn btn-sm btn-danger" style="background-color:#008080" (click)="deleteIssue(issue._id)">
+              <i class="material-icons" style="font-size:24px">delete</i>
+            </button>
+          </th>
+          <th><i class="material-icons" style="align:center">person</i>{{issue.team.name}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="2">
+            <p  style="color:red" >Issue Status</p>
+              <li>{{issue.status}} </li>
+
+            <p  style="color:red" >Issue Priority</p>
+              <li>{{issue.priority}}</li>
+
+            <p  style="color:red" >Issue Category</p>
+              <li>{{issue.category.name}}</li>
+          </td>
+          <td> <h3 style="color:red" align="center">description</h3><br>
+
+          {{issue.description}}
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+        <div class="card-container">
+            <a routerLink="/teams/{{idTeam}}/category/{{idCategory}}"><u>Back to teams liste</u></a>
+        </div>
+  </div>

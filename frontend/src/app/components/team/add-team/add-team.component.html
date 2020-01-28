@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="container">
+  <h2 class="card-header">Add team</h2>
+  <div class="card-body">
+    <form [formGroup]="addTeamForm" (ngSubmit)="addTeam()">
+      <div class="input-group" [ngClass]="setClassName()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="name"
+               formControlName="name" placeholder="Team name" autofocus>
+      </div>
+      <input type="submit" [disabled]="!addTeamForm.valid" class="btn btn-primary" value="Add team">
+      <input type="reset"  class="btn btn-primary" value="Cancel">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="container">
+  <h2 class="card-header"> Login</h2>
+  <div class="card-body">
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <div class="input-group" [ngClass]="setClassEmail()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+        <input class="form-control" type="email" name="email"
+               formControlName="email" placeholder="Email" autofocus>
+      </div>
+
+      <div class="input-group" [ngClass]="setClassPassword()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-key"></i>
+          </span>
+        </div>
+        <input class="form-control" type="password" name="password"
+               formControlName="password" placeholder="Password">
+      </div>
+
+      <input type="submit" [disabled]="!loginForm.valid" class="btn btn-primary" value="Log in">
+      <input type="reset"  class="btn btn-primary" value="Cancel">
+      <!--
+      <div class="input-field col s12">
+      <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+        <i class="fa fa-sign-in"></i> Login
+      </button>
+      </div>
+
+      <div class="input-field col s12">
+      <button class="btn btn-primary" type="reset" [disabled]="!loginForm.valid">
+        <i class="fa fa-sign-in"></i> Cancel
+      </button>
+      </div>
+      -->
+    </form>
+
+  </div>
+</div>

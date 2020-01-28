@@ -1,0 +1,29 @@
+
+<div class="content" role="main">
+    <h2> Welcome in your Issues </h2><br>
+      <table class="table table-bordered">
+        <tbody *ngIf="issues.length === 0">
+          <tr>
+            <td colspan="4">There are no registered issue.</td>
+          </tr>
+        </tbody>
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Issue title</th>
+            <th scope="col">Issue description</th>
+            <th scope="col">Issue team</th>
+            <th scope="col">Issue status</th>
+            <th scope="col">Issue priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let issue of issues">
+            <td>{{issue.title}}</td>
+            <td>{{issue.description}}</td>
+            <td>{{issue.team.name}}</td>
+            <td>{{issue.status}}</td>
+            <td>{{issue.priority}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

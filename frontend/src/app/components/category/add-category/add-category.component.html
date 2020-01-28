@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="container">
+  <h2 class="card-header">Add category</h2>
+  <div class="card-body">
+    <!-- <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory(category._id)"> -->
+    <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
+      <div class="input-group" [ngClass]="setClassName()">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+        <input class="form-control" type="text" name="name"
+               formControlName="name" placeholder="Category name" autofocus>
+        <select formControlName="color">
+           <option [ngValue]="null" disabled>Choose color</option>
+           <option *ngFor="let color of colors" [ngValue]="color">
+            {{color}}
+           </option>
+       </select>
+        <!-- <select  name="color" >
+           <option [ngValue]="">--Please choose a color--</option>
+           <option [ngValue]="gray">Gray</option>
+           <option [ngValue]="red">Red</option>
+           <option [ngValue]="silver">Silver</option>
+           <option [ngValue]="gray">Gray</option>
+           <option [ngValue]="pink"> Pink</option>
+           <option [ngValue]="blue">Blue</option>
+           <option [ngValue]="yellow">Yellow</option>
+           <option [ngValue]="green">Green</option>
+           <option [ngValue]="orang">Orang</option>
+           <option [ngValue]="purple">Purple</option>
+       </select>m -->
+      </div>
+      <input type="submit" [disabled]="!addCategoryForm.valid" class="btn btn-primary" value="Add category">
+      <input type="reset"  class="btn btn-primary" value="Cancel">
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<app-toast [message]="toast.message"></app-toast>
+
+<div class="container" *ngIf="!isLoading">
+  <h2 class="card-header">Account settings</h2>
+  <div class="card-body">
+    <form #accountForm="ngForm" (ngSubmit)="save(user)">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+
+        <input class="form-control" type="text" name="name"
+               [ngModel]="team?.name" (ngModelChange)="team.name = $event" placeholder="team name" required>
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fa fa-black-tie"></i>
+          </span>
+        </div>
+      </div>
+      <input type="submit" [disabled]="!accountForm.form.valid" class="btn btn-primary" value="Save">
+      <input type="reset"  class="btn btn-primary" value="Cancel">
+    </form>
+  </div>
+</div>
