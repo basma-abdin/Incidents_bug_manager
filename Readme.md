@@ -1,5 +1,7 @@
 # Incidents and Bug manager
-
+The idea of this project resembles that of Jira, after authentication you can:
+ - Create a team, create categories in it, then create tasks with important information (Title, Description, Deadline, Priority, Status, assign_to (user),      comments) 
+ 
 Content of this project.
 
    - Backend (Nodejs and ExpressJs)
